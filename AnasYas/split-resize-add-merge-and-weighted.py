@@ -1,0 +1,22 @@
+import cv2
+img1=cv2.imread('cat.jfif')
+img2=cv2.imread('dog.jpg')
+img3=cv2.imread('messi.jfif')
+print(img1.size)
+print(img2.size)
+print(img1.dtype)
+print(img2.dtype)
+print(img1.shape)
+print(img2.shape)
+b,g,r=cv2.split(img1)
+img1=cv2.merge((b,g,r))
+#ball=img3[113:158,136:177]
+#img3[189:153,227:157]=ball
+img1=cv2.resize(img1,(512,512))
+img2=cv2.resize(img2,(512,512))
+#img3=cv2.resize(img3,(512,512))
+dst=cv2.add(img1,img2)
+dst=cv2.addWeighted(img1,0.8,img2,0.3,0)
+cv2.imshow('image',dst)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
